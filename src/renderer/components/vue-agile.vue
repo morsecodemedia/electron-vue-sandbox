@@ -1,10 +1,11 @@
 <template>
   <div id="wrapper">
-      <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
       <main>
           <div class="left-side">
-              <span class="title">This is a Test</span>
-              <router-link to="/">Home</router-link>
+              <div class="title" style="background-color: white; color: black; padding: 10px; display: block; position: absolute; top: 10px; left; 15px; z-index: 9000;">This is a test of vue-agile, a carousel componenet based on the Slick carousel.<br />
+                <router-link to="/" style="color: black; padding: 20px;">Home</router-link>
+              </div>
+
               <agile :arrows="false"
               :dots="false"
               :speed="15000"
@@ -32,7 +33,7 @@ import VueAgile from 'vue-agile';
 Vue.use(VueAgile);
 
 export default {
-  name: 'test-page',
+  name: 'vue-agile',
   data() {
     return {
       pictureActive: [],

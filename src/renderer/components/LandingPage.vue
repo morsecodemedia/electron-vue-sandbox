@@ -7,7 +7,7 @@
           Welcome to your new project!
         </span>
         <system-information></system-information>
-		<router-link class="btn" to="test-page">Test Page</router-link>
+		<router-link class="btn" to="vue-agile">Vue Agile</router-link>
       </div>
 
       <div class="right-side">

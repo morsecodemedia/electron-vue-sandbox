@@ -11,9 +11,9 @@ export default new Router({
       component: require('@/components/LandingPage').default,
     },
     {
-      path: '/test-page',
-      name: 'test-page',
-      component: require('@/components/TestPage').default,
+      path: '/vue-agile',
+      name: 'vue-agile',
+      component: require('@/components/vue-agile').default,
     },
     {
       path: '*',
