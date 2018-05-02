@@ -1,6 +1,7 @@
 <template>
   <div id="wrapper">
     <main>
+      <go-home></go-home>
       <picture
         v-for="picture in pictures"
         :key="picture.id">
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+  import goHome from './go-home'
   import { TimelineMax } from 'gsap'
   import path from 'path'
   import { remote } from 'electron'
@@ -29,6 +31,7 @@
 
   export default {
     name: 'Screensaver',
+    components: { goHome },
     data: function() {
       return {
         pictures: [],

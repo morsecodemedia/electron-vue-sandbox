@@ -21,6 +21,11 @@ export default new Router({
       component: require('@/components/Screensaver').default,
     },
     {
+      path: '/go-home',
+      name: 'go-home',
+      component: require('@/components/go-home').default,
+    },
+    {
       path: '*',
       redirect: '/',
     },
