@@ -7,7 +7,7 @@
 <script>
   export default {
     name: 'test-electron-vue',
-  };
+  }
 </script>
 
 <style>

@@ -27,10 +27,10 @@
 
 <script>
 
-import Vue from 'vue';
-import VueAgile from 'vue-agile';
+import Vue from 'vue'
+import VueAgile from 'vue-agile'
 
-Vue.use(VueAgile);
+Vue.use(VueAgile)
 
 export default {
   name: 'vue-agile',
@@ -59,14 +59,14 @@ export default {
           image: 'https://placeimg.com/350/350/people/sepia',
         },
       ],
-    };
+    }
   },
   methods: {
     isActive(id) {
-      return (this.pictureActive.indexOf(id) !== -1);
+      return (this.pictureActive.indexOf(id) !== -1)
     },
   },
-};
+}
 </script>
 
 <style>
