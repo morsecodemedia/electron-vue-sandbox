@@ -1,0 +1,84 @@
+{
+	"home": [
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		}
+	],
+	"locations": [
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		},
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		},
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		},
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		},
+		{
+			"label": "",
+			"address": {
+				"address1": "",
+				"address2": "",
+				"address3": "",
+				"city": "",
+				"state": "",
+				"zip": ""
+			},
+			"latitude": "",
+			"longitude": ""
+		}
+	]
+}
