@@ -5,15 +5,6 @@
       <div class="left-side">
         <span class="title">This is your Vue/Electron Sandbox!</span>
         <system-information></system-information>
-      </div>
-
-      <div class="right-side">
-        <div class="doc">
-          <div class="title">Test Components</div>
-          <router-link class="btn" to="vue-agile">Vue Agile</router-link>
-          <router-link class="btn" to="Screensaver">Screensaver</router-link>
-          <router-link class="btn" to="go-home">Go Home - Component</router-link>
-        </div>
         <div class="doc">
           <div class="title alt">Documentation</div>
           <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
@@ -21,6 +12,30 @@
           <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
 
         </div>
+      </div>
+
+      <div class="right-side">
+        <div class="doc">
+          <div class="title">3rd Party Components</div>
+          <p>
+            <router-link class="btn" to="vue-agile">Vue Agile</router-link><br />
+             A carousel component
+          </p>
+          <div class="title">Custom Components</div>
+          <p>
+            <router-link class="btn" to="Screensaver">Screensaver</router-link><br />
+            An image gallery with fade animations
+          </p>
+          <p>
+            <router-link class="btn" to="go-home">Go Home</router-link><br />
+            A full screen invisible button that can be layered on any component to take you home
+          </p>
+          <p>
+            <router-link class="btn" to="TimeTravel">Time Travel - Full</router-link><br />
+            A full page component, get travel times from home location to a set of predefined locations
+          </p>
+        </div>
+
       </div>
     </main>
   </div>
