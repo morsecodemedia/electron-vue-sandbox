@@ -53,6 +53,7 @@
     }
   },
   "dependencies": {
+    "@google/maps": "^0.4.6",
     "axios": "^0.16.1",
     "fs": "^0.0.1-security",
     "gsap": "^1.20.4",
