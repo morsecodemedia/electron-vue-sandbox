@@ -31,7 +31,7 @@
             A full screen invisible button that can be layered on any component to take you home
           </p>
           <p>
-            <router-link class="btn" to="TimeTravel">Time Travel - Full</router-link><br />
+            <router-link class="btn" to="TimeTravel"><font-awesome-icon icon="map-signs" /> Time Travel - Full</router-link><br />
             A full page component, get travel times from home location to a set of predefined locations
           </p>
         </div>
@@ -43,10 +43,16 @@
 
 <script>
   import SystemInformation from './LandingPage/SystemInformation'
-
+  import fontawesome      from '@fortawesome/fontawesome'
+  import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
+  import { faMapSigns } from '@fortawesome/fontawesome-free-solid'
+  fontawesome.library.add(faMapSigns)
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    components: {
+      SystemInformation,
+      FontAwesomeIcon
+    },
     methods: {
       open(link) {
         this.$electron.shell.openExternal(link)

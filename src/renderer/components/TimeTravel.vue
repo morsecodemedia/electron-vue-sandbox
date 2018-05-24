@@ -39,8 +39,8 @@
         v-show="travelResponse !== ''"
         v-for="route in travelResponse"
         :key="route.id">
-          <button class="close-btn"
-          @click="resetTimeTravel()">X</button>
+          <span class="close-btn"
+          @click="resetTimeTravel()"><font-awesome-icon icon="times-circle" /></span>
           <p>From: <address>{{route.legs[0].start_address}}</address></p>
           <p>To: <address>{{route.legs[0].end_address}}</address></p>
           <p>{{route.legs[0].distance.text}} in {{route.legs[0].duration.text}} / {{route.legs[0].duration_in_traffic.text}} in current traffic.</p>
@@ -48,8 +48,8 @@
 
       <div class="error-msg"
       v-show="travelError !== ''">
-        <button class="close-btn"
-          @click="resetTimeTravel()">X</button>
+        <span class="close-btn"
+          @click="resetTimeTravel()"><font-awesome-icon icon="times-circle" /></span>
           <span v-html="travelError"></span>
       </div>
 
@@ -68,8 +68,8 @@
   import timeTravelConfig from './timeTravelConfig.json'
   import fontawesome      from '@fortawesome/fontawesome'
   import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
-  import { faCar, faWalking, faBicycle, faSubway } from '@fortawesome/fontawesome-free-solid'
-  fontawesome.library.add(faCar, faWalking, faBicycle, faSubway)
+  import { faCar, faWalking, faBicycle, faSubway, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
+  fontawesome.library.add(faCar, faWalking, faBicycle, faSubway, faTimesCircle)
   const googleMapsClient = require('@google/maps').createClient({
     key: timeTravelConfig.googleMapsAPIKey
   })
