@@ -53,6 +53,9 @@
     }
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/vue-fontawesome": "^0.0.22",
     "@google/maps": "^0.4.6",
     "axios": "^0.16.1",
     "fs": "^0.0.1-security",
