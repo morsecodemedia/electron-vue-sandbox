@@ -10,9 +10,9 @@
       <div class="right-side">
         <div class="doc">
           <div class="title">Test Components</div>
-          <router-link class="btn" to="vue-agile">Vue Agile</router-link>
-          <router-link class="btn" to="Screensaver">Screensaver</router-link>
+          <router-link class="btn" to="Screensaver">Screensaver - Component</router-link>
           <router-link class="btn" to="go-home">Go Home - Component</router-link>
+		  <router-link class="btn" to="TimeTravel">Time Travel - Component</router-link>
         </div>
         <div class="doc">
           <div class="title alt">Documentation</div>

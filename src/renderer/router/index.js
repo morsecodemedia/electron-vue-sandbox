@@ -26,6 +26,11 @@ export default new Router({
       component: require('@/components/go-home').default,
     },
     {
+      path: '/TimeTravel',
+      name: 'TimeTravel',
+      component: require('@/components/TimeTravel').default,
+    },
+    {
       path: '*',
       redirect: '/',
     },
