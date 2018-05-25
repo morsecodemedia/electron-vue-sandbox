@@ -5,6 +5,7 @@
       <div class="left-side">
         <span class="title">This is your Vue/Electron Sandbox!</span>
         <system-information></system-information>
+		<wifi></wifi>
         <div class="doc">
           <div class="title alt">Documentation</div>
           <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
@@ -42,15 +43,17 @@
 </template>
 
 <script>
-  import SystemInformation from './LandingPage/SystemInformation'
-  import fontawesome      from '@fortawesome/fontawesome'
-  import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
-  import { faMapSigns } from '@fortawesome/fontawesome-free-solid'
+  import SystemInformation  from './LandingPage/SystemInformation'
+  import Wifi               from './LandingPage/Wifi'
+  import fontawesome        from '@fortawesome/fontawesome'
+  import FontAwesomeIcon    from '@fortawesome/vue-fontawesome'
+  import { faMapSigns }     from '@fortawesome/fontawesome-free-solid'
   fontawesome.library.add(faMapSigns)
   export default {
     name: 'landing-page',
     components: {
       SystemInformation,
+      Wifi,
       FontAwesomeIcon
     },
     methods: {
