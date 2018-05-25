@@ -5,6 +5,7 @@
       <div class="left-side">
         <span class="title">This is your Vue/Electron Sandbox!</span>
         <system-information></system-information>
+		<wifi></wifi>
         <div class="doc">
           <div class="title alt">Documentation</div>
           <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
@@ -43,10 +44,11 @@
 
 <script>
   import SystemInformation from './LandingPage/SystemInformation'
+  import Wifi from './LandingPage/Wifi'
 
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    components: { SystemInformation, Wifi },
     methods: {
       open(link) {
         this.$electron.shell.openExternal(link)

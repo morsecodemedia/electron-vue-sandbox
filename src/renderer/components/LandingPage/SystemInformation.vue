@@ -26,6 +26,10 @@
         <div class="name">Platform:</div>
         <div class="value">{{ platform }}</div>
       </div>
+	    <div class="item">
+        <div class="name">Internet Connection:</div>
+        <div class="value">{{ internet }}</div>
+		  </div>
     </div>
   </div>
 </template>
@@ -40,6 +44,7 @@
         path: this.$route.path,
         platform: require('os').platform(),
         vue: require('vue/package.json').version,
+        internet: navigator.onLine ? 'online' : 'offline',
       }
     },
   }
