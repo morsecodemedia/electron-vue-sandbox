@@ -41,9 +41,7 @@
         :key="route.id">
           <span class="close-btn"
           @click="resetTimeTravel()"><font-awesome-icon icon="times-circle" /></span>
-          <p>From: <address>{{route.legs[0].start_address}}</address></p>
-          <p>To: <address>{{route.legs[0].end_address}}</address></p>
-          <p>{{route.legs[0].distance.text}} in {{route.legs[0].duration.text}} / {{route.legs[0].duration_in_traffic.text}} in current traffic.</p>
+          <p><span :class="colorScale(route.timeDiff)">{{route.legs[0].duration_in_traffic.text}}</span> in current traffic.</p>
       </div>
 
       <div class="error-msg"
@@ -66,6 +64,7 @@
 
 <script>
   import timeTravelConfig from './timeTravelConfig.json'
+  import dayjs            from 'dayjs'
   import fontawesome      from '@fortawesome/fontawesome'
   import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
   import { faCar, faWalking, faBicycle, faSubway, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
@@ -76,7 +75,8 @@
   export default {
     name: 'TimeTravel',
     components: {
-      FontAwesomeIcon
+      FontAwesomeIcon,
+      dayjs
     },
     data: function() {
       return {
@@ -94,6 +94,10 @@
           switch(data.status) {
             case 'OK':
               this.travelResponse = data.routes
+              for (let i in this.travelResponse) {
+                let route = this.travelResponse[i]
+                route.timeDiff = dayjs(route.legs[0].duration_in_traffic.value).diff(route.legs[0].duration.value,'seconds',true)
+              }
             break
             case 'NOT_FOUND':
               this.travelError = "<strong>NOT FOUND:</strong><br /> At least one of the locations specified in the request's origin, destination, or waypoints could not be geocoded."
@@ -141,6 +145,31 @@
       resetTimeTravel() {
         this.travelResponse = ''
         this.travelError = ''
+      },
+      colorScale(x) {
+        let trafficColorClass = ''
+        if (x <= 0.100) {
+          trafficColorClass = 'traffic-colors-1'
+        } else if (x >= 0.101 && x <= 0.200) {
+          trafficColorClass = 'traffic-colors-2'
+        } else if (x >= 0.201 && x <= 0.300) {
+          trafficColorClass = 'traffic-colors-3'
+        } else if (x >= 0.301 && x <= 0.400) {
+          trafficColorClass = 'traffic-colors-4'
+        } else if (x >= 0.401 && x <= 0.500) {
+          trafficColorClass = 'traffic-colors-5'
+        } else if (x >= 0.501 && x <= 0.600) {
+          trafficColorClass = 'traffic-colors-6'
+        } else if (x >= 0.601 && x <= 0.700) {
+          trafficColorClass = 'traffic-colors-7'
+        } else if (x >= 0.701 && x <= 0.800) {
+          trafficColorClass = 'traffic-colors-8'
+        } else if (x >= 0.801 && x <= 0.900) {
+          trafficColorClass = 'traffic-colors-9'
+        } else if (x >= 0.901) {
+          trafficColorClass = 'traffic-colors-10'
+        }
+        return trafficColorClass
       }
     }
   }
@@ -236,6 +265,37 @@
     right: 10px;
     min-width: 300px;
     max-width: 33%;
+  }
+
+  .traffic-colors-1 {
+    color: #008000;
+  }
+  .traffic-colors-2 {
+    color: #489600;
+  }
+  .traffic-colors-3 {
+    color: #74ac00;
+  }
+  .traffic-colors-4 {
+    color: #9dc200;
+  }
+  .traffic-colors-5 {
+    color: #ccd700;
+  }
+  .traffic-colors-6 {
+    color: #fbbf00;
+  }
+  .traffic-colors-7 {
+    color: #e59200;
+  }
+  .traffic-colors-8 {
+    color: #c96801;
+  }
+  .traffic-colors-9 {
+    color: #ab3c02;
+  }
+  .traffic-colors-10 {
+    color: #8b0000;
   }
 </style>
 

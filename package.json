@@ -58,6 +58,7 @@
     "@fortawesome/vue-fontawesome": "^0.0.22",
     "@google/maps": "^0.4.6",
     "axios": "^0.16.1",
+    "dayjs": "^1.6.3",
     "fs": "^0.0.1-security",
     "gsap": "^1.20.4",
     "vue": "^2.3.3",
