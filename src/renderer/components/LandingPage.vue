@@ -20,7 +20,7 @@
           <div class="title">3rd Party Components</div>
           <p>
             <router-link class="btn" to="vue-agile">Vue Agile</router-link><br />
-             A carousel component
+            A carousel component
           </p>
           <div class="title">Custom Components</div>
           <p>
@@ -35,16 +35,30 @@
             <router-link class="btn" to="TimeTravel"><font-awesome-icon icon="map-signs" /> Time Travel - Full</router-link><br />
             A full page component, get travel times from home location to a set of predefined locations
           </p>
+          <p>
+            <router-link class="btn" to="Weather">Weather</router-link><br />
+            A full page component, get the current weather, 5 day forecast, UV index and air pollution
+          </p>
+          <div class="title">Trigger Configurations</div>
+          <p>
+            <button @click="connectTwilioToNixle()">Connect Twilio - Doesn't work due to Twilio Limitations</button>
+          </p>
         </div>
-
+      </div>
+      <div v-if="bridgeOpening" class="bridge-notification">
+        <h1>{{bridgeMsg}}</h1>
       </div>
     </main>
   </div>
 </template>
 
 <script>
+  // TODO: swap out timeTravelConfig to a master config file
+  import config             from './timeTravelConfig.json'
   import SystemInformation  from './LandingPage/SystemInformation'
   import Wifi               from './LandingPage/Wifi'
+  import express            from 'express'
+  import bodyParser         from 'body-parser'
   import fontawesome        from '@fortawesome/fontawesome'
   import FontAwesomeIcon    from '@fortawesome/vue-fontawesome'
   import { faMapSigns }     from '@fortawesome/fontawesome-free-solid'
@@ -56,10 +70,47 @@
       Wifi,
       FontAwesomeIcon
     },
+    data: function() {
+      return {
+        bridgeOpening: false,
+        //bridgeMsg: 'BCBC-PD: A Burlington Bristol Bridge opening will occur at appox. 4:55AM. nixle.us/ANJD73'
+        bridgeMsg: "",
+        authToken: config.twilioAuthToken,
+        accountSid: config.twilioAccountSid
+      }
+    },
     methods: {
       open(link) {
         this.$electron.shell.openExternal(link)
       },
+      connectTwilioToNixle() {
+        const twilioClient = require('twilio')(this.accountSid, this.authToken)
+
+        twilioClient.messages.create({
+          body: 'BBB',
+          from: config.twilioNumber,
+          to: '888777'
+        }).then(message => window.console.log(message.sid)).done()
+      },
+    },
+    mounted () {
+      let server = express()
+      server.use(bodyParser.urlencoded({extended:false}))
+      server.post('/message', function(request, response) {
+        // this.bridgeMsg = response.req.body.Body
+        // this.bridgeOpening = true
+        window.console.log(request)
+        window.console.log(response.req.body.Body)
+        window.console.log(response)
+      })
+      server.listen(3031)
+    },
+    updated () {
+      if (this.bridgeOpening) {
+        setTimeout(function() {
+          this.bridgeOpening = false
+        }, 1000 * 60 * 20)
+      }
     },
   }
 </script>
@@ -146,5 +197,22 @@
   .doc button.alt {
     color: #42b983;
     background-color: transparent;
+  }
+  .bridge-notification {
+    height: 120px;
+    width: 400px;
+    display: block;
+    background: black;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    padding: 15px;
+  }
+  .bridge-notification h1 {
+    font-size: 22px;
+    line-height: 1.25em;
+    color: red;
+    display: inline-block;
   }
 </style>

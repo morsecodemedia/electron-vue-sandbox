@@ -31,6 +31,11 @@ export default new Router({
       component: require('@/components/TimeTravel').default,
     },
     {
+      path: '/Weather',
+      name: 'Weather',
+      component: require('@/components/Weather').default,
+    },
+    {
       path: '*',
       redirect: '/',
     },

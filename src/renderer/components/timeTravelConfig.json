@@ -1,5 +1,11 @@
 {
+  "twilioAuthToken": "",
+  "twilioAccountSid": "",
+  "twilioNumber": "",
+  "openWeatherMapAPIKey": "",
   "googleMapsAPIKey": "",
+  "lang": "en",
+  "unitsofMeasurement": "imperial",
   "home": {
 		"label": "",
 		"address": {
