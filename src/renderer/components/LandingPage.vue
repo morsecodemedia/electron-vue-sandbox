@@ -73,10 +73,10 @@
     data: function() {
       return {
         bridgeOpening: false,
-        //bridgeMsg: 'BCBC-PD: A Burlington Bristol Bridge opening will occur at appox. 4:55AM. nixle.us/ANJD73'
         bridgeMsg: "",
         authToken: config.twilioAuthToken,
-        accountSid: config.twilioAccountSid
+        accountSid: config.twilioAccountSid,
+        server: express()
       }
     },
     methods: {
@@ -94,20 +94,21 @@
       },
     },
     mounted () {
-      let server = express()
-      server.use(bodyParser.urlencoded({extended:false}))
-      server.post('/message', function(request, response) {
-        // this.bridgeMsg = response.req.body.Body
-        // this.bridgeOpening = true
+      this.server.use(bodyParser.urlencoded({extended:false}))
+      this.server.post('/message', (request, response) => {
+        this.bridgeMsg = response.req.body.Body
+        this.bridgeOpening = true
         window.console.log(request)
         window.console.log(response.req.body.Body)
         window.console.log(response)
       })
-      server.listen(3031)
+      // remember to: ngrok http 3031
+      // then get the hashed subdomain and update in twilio dashboard
+      this.server.listen(3031)
     },
     updated () {
       if (this.bridgeOpening) {
-        setTimeout(function() {
+        setTimeout(() => {
           this.bridgeOpening = false
         }, 1000 * 60 * 20)
       }
@@ -115,7 +116,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
   * {
