@@ -85,13 +85,13 @@
       }
     },
     beforeMount () {
-      if (config.lang.length>0) {
+      if (config.lang && config.lang.length > 0) {
         this.lang = config.lang
       }
-      if (config.unitsOfMeasurement.length>0) {
+      if (config.unitsOfMeasurement && config.unitsOfMeasurement.length > 0) {
         this.unitsOfMeasurement = config.unitsOfMeasurement
       }
-      if (config.weatherRefreshInterval.length>0) {
+      if (config.weatherRefreshInterval && config.weatherRefreshInterval.length > 0) {
         this.weatherRefreshInterval = config.weatherRefreshInterval
       }
     },

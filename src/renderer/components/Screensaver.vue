@@ -55,10 +55,10 @@
             })
         })
       })
-      if (config.fadeConfig.fadeSpeed.length>0) {
+      if (config.fadeConfig.fadeSpeed && config.fadeConfig.fadeSpeed.length > 0) {
         this.fadeConfig.fadeSpeed = config.fadeConfig.fadeSpeed
       }
-      if (config.fadeConfig.displayLength.length>0) {
+      if (config.fadeConfig.displayLength && config.fadeConfig.displayLength.length > 0) {
         this.fadeConfig.displayLength = config.fadeConfig.displayLength
       }
     },

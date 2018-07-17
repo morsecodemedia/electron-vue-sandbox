@@ -173,8 +173,9 @@
       }
     },
     beforeMount () {
-      // if (config.fadeConfig.displayLength.length>0) {
-      //   this.fadeConfig.displayLength = config.fadeConfig.displayLength
+      // Example of configuration overrides
+      // if (config.setting && config.setting.length > 0) {
+      //   this.setting = config.setting
       // }
     },
   }
