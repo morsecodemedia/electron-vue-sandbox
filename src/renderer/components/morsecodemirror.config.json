@@ -6,6 +6,10 @@
   "googleMapsAPIKey": "",
   "lang": "en",
   "unitsofMeasurement": "imperial",
+  "fadeConfig" : {
+    "fadeSpeed": null,
+    "displayLength": null
+  },
   "home": {
 		"label": "",
 		"address": {

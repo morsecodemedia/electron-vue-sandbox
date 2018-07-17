@@ -63,14 +63,14 @@
 </template>
 
 <script>
-  import timeTravelConfig from './timeTravelConfig.json'
+  import config           from './morsecodemirror.config.json'
   import dayjs            from 'dayjs'
   import fontawesome      from '@fortawesome/fontawesome'
   import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
   import { faCar, faWalking, faBicycle, faSubway, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
   fontawesome.library.add(faCar, faWalking, faBicycle, faSubway, faTimesCircle)
   const googleMapsClient = require('@google/maps').createClient({
-    key: timeTravelConfig.googleMapsAPIKey
+    key: config.googleMapsAPIKey
   })
   export default {
     name: 'TimeTravel',
@@ -80,10 +80,10 @@
     },
     data: function() {
       return {
-        locations: timeTravelConfig.locations,
-        home: timeTravelConfig.home,
-        travelResponse: timeTravelConfig.travelResponse,
-        travelError: timeTravelConfig.travelError
+        locations: config.locations,
+        home: config.home,
+        travelResponse: '',
+        travelError: ''
       }
     },
     methods: {
@@ -171,7 +171,12 @@
         }
         return trafficColorClass
       }
-    }
+    },
+    beforeMount () {
+      // if (config.fadeConfig.displayLength.length>0) {
+      //   this.fadeConfig.displayLength = config.fadeConfig.displayLength
+      // }
+    },
   }
 </script>
 

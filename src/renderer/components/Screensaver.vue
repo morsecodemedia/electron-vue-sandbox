@@ -15,19 +15,15 @@
 </template>
 
 <script>
-  import goHome from './go-home'
-  import { TimelineMax } from 'gsap'
-  import path from 'path'
-  import { remote } from 'electron'
+  import config           from './morsecodemirror.config.json'
+  import goHome           from './go-home'
+  import { TimelineMax }  from 'gsap'
+  import path             from 'path'
+  import { remote }       from 'electron'
   const fs = require('fs')
   const testFolder = path.join(remote.app.getPath('desktop'), 'screensaver/')
 
   var tl = new TimelineMax({repeat:-1})
-
-  var fadeConfig = {
-    fadeSpeed: 4,
-    displayLength: 4
-  }
 
   export default {
     name: 'Screensaver',
@@ -35,6 +31,10 @@
     data: function() {
       return {
         pictures: [],
+        fadeConfig : {
+          fadeSpeed: 4,
+          displayLength: 4
+        },
       }
     },
     updated () {
@@ -55,6 +55,12 @@
             })
         })
       })
+      if (config.fadeConfig.fadeSpeed.length>0) {
+        this.fadeConfig.fadeSpeed = config.fadeConfig.fadeSpeed
+      }
+      if (config.fadeConfig.displayLength.length>0) {
+        this.fadeConfig.displayLength = config.fadeConfig.displayLength
+      }
     },
   }
 </script>

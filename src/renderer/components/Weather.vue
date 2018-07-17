@@ -9,17 +9,17 @@
 
 <script>
   // TODO: Pull default values from a weather specific config
-  import config from './timeTravelConfig.json'
+  import config from './morsecodemirror.config.json'
   import axios  from 'axios'
   export default {
     name: 'Weather',
     data: function() {
       return {
         openWeatherMapAPI: config.openWeatherMapAPIKey,
-        lang: config.lang,
-        units: config.unitsOfMeasurement,
+        lang: 'en',
+        unitsOfMeasurement: 'imperial',
         weather: '',
-        refreshIntervals: 600000,
+        weatherRefreshInterval: 600000,
         lat: config.home.latitude,
         long: config.home.longitude,
         zip: config.home.address.zip
@@ -83,7 +83,18 @@
             window.console.log(error)
           })
       }
-    }
+    },
+    beforeMount () {
+      if (config.lang.length>0) {
+        this.lang = config.lang
+      }
+      if (config.unitsOfMeasurement.length>0) {
+        this.unitsOfMeasurement = config.unitsOfMeasurement
+      }
+      if (config.weatherRefreshInterval.length>0) {
+        this.weatherRefreshInterval = config.weatherRefreshInterval
+      }
+    },
   }
 </script>
 

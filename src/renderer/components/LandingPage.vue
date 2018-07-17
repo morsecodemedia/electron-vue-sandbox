@@ -53,8 +53,7 @@
 </template>
 
 <script>
-  // TODO: swap out timeTravelConfig to a master config file
-  import config             from './timeTravelConfig.json'
+  import config             from './morsecodemirror.config.json'
   import SystemInformation  from './LandingPage/SystemInformation'
   import Wifi               from './LandingPage/Wifi'
   import express            from 'express'
@@ -73,7 +72,7 @@
     data: function() {
       return {
         bridgeOpening: false,
-        bridgeMsg: "",
+        bridgeMsg: '',
         authToken: config.twilioAuthToken,
         accountSid: config.twilioAccountSid,
         server: express()
@@ -98,9 +97,6 @@
       this.server.post('/message', (request, response) => {
         this.bridgeMsg = response.req.body.Body
         this.bridgeOpening = true
-        window.console.log(request)
-        window.console.log(response.req.body.Body)
-        window.console.log(response)
       })
       // remember to: ngrok http 3031
       // then get the hashed subdomain and update in twilio dashboard
